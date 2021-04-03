@@ -1,16 +1,18 @@
 const core = require('@actions/core');
+const axios = require('axios');
 
 try {
-
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", core.getInput('hasURL'), false);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Authorization','Bearer ' + core.getInput('token'));
-    xhr.send(JSON.stringify({
+    await axios.post(core.getInput('hasURL'), {
         "entity_id": core.getInput('entityID'),
         "rgb_color": [236, 174, 34]
-    }));
-
+    }, {
+        headers: {
+            'Authorization': 'Bearer ' + core.getInput('token')
+        }
+    }).then(res => {
+    }).catch(error => {
+        core.setFailed(error);
+    });
 } catch (error) {
     core.setFailed(error.message);
 }
