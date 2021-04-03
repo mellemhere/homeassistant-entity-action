@@ -1,0 +1,15 @@
+name: 'HomeAssistant Entity Action'
+description: 'Perform actions on entities thought HAS API'
+inputs:
+  hasURL:
+    description: 'URL of home assistant instance'
+    required: true
+  token:
+    description: 'Long lived token'
+    required: true
+  entityID:
+    description: 'Entity we are going to interact'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
