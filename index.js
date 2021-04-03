@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const axios = require('axios');
 
 try {
-    await axios.post(core.getInput('hasURL'), {
+    axios.post(core.getInput('hasURL'), {
         "entity_id": core.getInput('entityID'),
         "rgb_color": [236, 174, 34]
     }, {
