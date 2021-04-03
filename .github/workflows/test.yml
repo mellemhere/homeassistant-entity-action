@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Test action
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Change color of my light
+        uses: ./ # Uses an action in the root directory
+        with:
+          hasURL: '${{ secrets.HASURL }}'
+          token: '${{ secrets.TOKEN }}'
+          entityID: '${{ secrets.ENTITYID }}'
