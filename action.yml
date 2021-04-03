@@ -10,6 +10,11 @@ inputs:
   entityID:
     description: 'Entity we are going to interact'
     required: true
+  payload:
+    description: 'Payload sent to the entity'
+    required: false
+    default: 'false'
+
 runs:
   using: 'node12'
   main: 'index.js'
