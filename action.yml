@@ -1,5 +1,8 @@
 name: 'HomeAssistant Entity Action'
 description: 'Perform actions on entities thought HAS API'
+branding:
+  icon: 'cloud'
+  color: 'green'
 inputs:
   hasURL:
     description: 'URL of home assistant instance'
